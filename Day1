@@ -1,0 +1,15 @@
+'''Given an array of integers nums and an integer target, 
+return indices of the two numbers such that they add up to target.'''
+
+arr= (2,7,11,15)
+# For converting the list to array
+new_arr= dict((v,i) for i,v in enumerate(arr))
+a= int(input("Enter your target- "))
+for i,v in enumerate(arr):
+    # For searching
+    num_req= a - v
+    if num_req in new_arr:
+        print([i, new_arr[num_req]])
+        quit()
+    else:
+        print("Target not found")
