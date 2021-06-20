@@ -1,0 +1,22 @@
+'''The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this :
+
+P   A   H   N
+A P L S I I G
+Y   I   R
+And then read line by line : "PINALSIGYAHRPI" '''
+
+def convert(s, numRows):
+    if numRows<=1:
+        return s
+    cycle= numRows*2 - 2
+    strlen= len(s)
+    result= ""
+    for i in range(numRows):
+        for j in range(i,strlen,cycle):
+            result += s[j]
+            secJ= (j-i) + cycle-i
+            if (secJ-j) % cycle != 0 and secJ < strlen:
+                result += s[secJ]
+    print(result)
+
+convert("PAYPALISHIRING", 4)
